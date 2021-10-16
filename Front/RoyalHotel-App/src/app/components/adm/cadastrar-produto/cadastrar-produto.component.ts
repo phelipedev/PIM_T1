@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Fornecedor } from '@app/models/Fornecedor';
@@ -14,6 +14,10 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./cadastrar-produto.component.scss']
 })
 export class CadastrarProdutoComponent implements OnInit {
+
+  @Input() titulo: string;
+  @Input() iconClass = 'fab fa-product-hunt';
+  @Input() subtitulo = 'Desde 2021';
 
   form: FormGroup;
 
@@ -59,6 +63,10 @@ export class CadastrarProdutoComponent implements OnInit {
       valor: ['', Validators.required],
       fornecedor: this.fb.array([]),
     });
+  }
+
+  listar(): void {
+    this.router.navigate([`/listar-produto`]);
   }
 
   public cadastrarFornecedor(fornecedor: Fornecedor): void {

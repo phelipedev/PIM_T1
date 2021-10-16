@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+// use App\http\Controllers\ReservaSiteController;
+// use App\http\Controllers\CadastroHospedeController;
+// use App\http\Controllers\OrcamentoController;
+// use App\http\Controllers\FaleConoscoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +17,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('angular');
+// });
+
+Route::resource('reservar-agora', ReservaSiteController::class);
+Route::resource('cadastro-usuario', CadastroHospedeController::class);
+Route::resource('orcamento', OrcamentoController::class);
+Route::resource('fale-conosco', FaleConoscoController::class);

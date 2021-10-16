@@ -47,6 +47,11 @@ import { ListaProdutosComponent } from './components/adm/lista-produtos/lista-pr
 import { FornecedorComponent } from './components/adm/cadastrar-fornecedor/fornecedor.component';
 import { RegistrarPedidoComponent } from './components/adm/registrar-pedido/registrar-pedido.component';
 import { ListarPedidoComponent } from './components/adm/listar-pedido/listar-pedido.component';
+import { InicioAdmComponent } from './components/adm/inicio-adm/inicio-adm.component';
+import { CadastrarApartamentosComponent } from './components/adm/cadastrar-apartamentos/cadastrar-apartamentos.component';
+import { ListarApartamentoComponent } from './components/adm/listar-apartamento/listar-apartamento.component';
+import { PerfilComponent } from './components/user/perfil/perfil.component';
+import { ListarReservasComponent } from './components/adm/listar-reservas/listar-reservas.component';
 
 defineLocale('pt-br', ptBrLocale);
 
@@ -80,7 +85,12 @@ defineLocale('pt-br', ptBrLocale);
     ListaProdutosComponent,
     FornecedorComponent,
     RegistrarPedidoComponent,
-    ListarPedidoComponent
+    ListarPedidoComponent,
+    InicioAdmComponent,
+    CadastrarApartamentosComponent,
+    ListarApartamentoComponent,
+    PerfilComponent,
+    ListarReservasComponent
   ],
   imports: [
     BrowserModule,

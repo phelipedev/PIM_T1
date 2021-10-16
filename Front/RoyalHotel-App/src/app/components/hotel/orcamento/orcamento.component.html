@@ -54,10 +54,10 @@
           </div>
           <div class="form-group col-md-4">
             <label>Data Chegada</label>
-            <input type="datetime" class="form-control" [ngClass]="cssValidator(f.dataChegada)"
-            value="{{orcamento.dataChegada | DateFormatPipe}}" bsDatepicker [bsConfig]="bsConfig" formControlName="dataChegada"
-            placeholder="" [(ngModel)]="orcamento.dataChegada">
-            <div *ngIf="f.dataChegada.errors?.required && f.dataChegada.touched" class="invalid-feedback">
+            <input type="datetime" class="form-control" [ngClass]="cssValidator(f.dataEntrada)"
+            value="{{orcamento.dataEntrada | DateFormatPipe}}" bsDatepicker [bsConfig]="bsConfig" formControlName="dataEntrada"
+            placeholder="" [(ngModel)]="orcamento.dataEntrada">
+            <div *ngIf="f.dataEntrada.errors?.required && f.dataEntrada.touched" class="invalid-feedback">
               Data é obrigatório.
             </div>
           </div>

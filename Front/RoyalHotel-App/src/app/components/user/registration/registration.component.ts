@@ -1,6 +1,7 @@
 import { ValidatorField } from './../../../helpers/ValidatorField';
 import { AbstractControlOptions, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { CadastroUsuario } from '@app/models/CadastroUsuarioSite';
 
 @Component({
   selector: 'app-registration',
@@ -10,6 +11,8 @@ import { Component, OnInit } from '@angular/core';
 export class RegistrationComponent implements OnInit {
 
   form!: FormGroup;
+
+  usuario = {} as CadastroUsuario;
 
   constructor(public fb: FormBuilder) { }
 
@@ -27,16 +30,24 @@ export class RegistrationComponent implements OnInit {
 
     this.form = this.fb.group({
       primeiroNome: ['', Validators.required],
-      ultimoNome: ['', Validators.required],
+      sobreNome: ['', Validators.required],
       email: ['',
         [Validators.required, Validators.email]
       ],
-      userName: ['', Validators.required],
+      usuario: ['', Validators.required],
       senha: ['',
         [Validators.required, Validators.minLength(6)]
       ],
       confirmeSenha: ['', Validators.required],
     }, formOptions);
+  }
+
+  public cadastroUsuario(): void {
+    if (this.form.valid) {
+      this.usuario.categoria = 2;
+      this.usuario = { ...this.form.value };
+      console.log(this.usuario);
+    }
   }
 
 }

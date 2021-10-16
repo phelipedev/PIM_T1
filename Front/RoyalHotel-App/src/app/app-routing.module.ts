@@ -22,6 +22,12 @@ import { ListaProdutosComponent } from './components/adm/lista-produtos/lista-pr
 import { FornecedorComponent } from './components/adm/cadastrar-fornecedor/fornecedor.component';
 import { RegistrarPedidoComponent } from './components/adm/registrar-pedido/registrar-pedido.component';
 import { ListarPedidoComponent } from './components/adm/listar-pedido/listar-pedido.component';
+import { InicioAdmComponent } from './components/adm/inicio-adm/inicio-adm.component';
+import { HospedeListaComponent } from './components/adm/hospede/hospede-lista/hospede-lista.component';
+import { CadastrarApartamentosComponent } from './components/adm/cadastrar-apartamentos/cadastrar-apartamentos.component';
+import { ListarApartamentoComponent } from './components/adm/listar-apartamento/listar-apartamento.component';
+import { PerfilComponent } from './components/user/perfil/perfil.component';
+import { ListarReservasComponent } from './components/adm/listar-reservas/listar-reservas.component';
 
 const routes: Routes = [
   {
@@ -29,22 +35,26 @@ const routes: Routes = [
     children: [
       { path: 'login', component: LoginComponent },
       { path: 'registration', component: RegistrationComponent },
+      { path: 'hospede', component: PerfilComponent },
     ]
   },
-  {
-    path: 'hospede', component: HospedeComponent,
-    children: [
-      { path: 'detalhe-hospede', component: HospedeDetalheComponent }
-    ]
-  },
+  { path: 'listar-hospede', component: HospedeListaComponent },
+  { path: 'cadastro-hospede', component: HospedeDetalheComponent },
   { path: 'listar-pedido', component: ListarPedidoComponent },
   { path: 'registrar-pedido', component: RegistrarPedidoComponent },
   { path: 'nova-reserva', component: NovaReservaComponent },
-  { path: 'adm', component: DashboardAdmComponent },
+  { path: 'reservas', component: ListarReservasComponent },
+  { path: 'adm', component: DashboardAdmComponent,
+    children: [
+      { path: 'inicio', component: InicioAdmComponent }
+    ]
+  },
   { path: 'cadastrar-produto', component: CadastrarProdutoComponent },
   { path: 'listar-produto', component: ListaProdutosComponent },
   { path: 'cadastrar-fornecedor', component: FornecedorComponent },
   { path: 'listar-fornecedor', component: ListaFornecedoresComponent },
+  { path: 'cadastrar-apartamento', component: CadastrarApartamentosComponent },
+  { path: 'listar-apartamento', component: ListarApartamentoComponent },
   {
     path: 'hotel', component: HotelComponent,
     children: [

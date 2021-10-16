@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Hospede } from '@app/models/Hospede';
@@ -13,6 +13,10 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./hospede-detalhe.component.scss']
 })
 export class HospedeDetalheComponent implements OnInit {
+
+  @Input() titulo: string;
+  @Input() iconClass = 'fa fa-user';
+  @Input() subtitulo = 'Desde 2021';
 
   form: FormGroup;
 
@@ -64,6 +68,10 @@ export class HospedeDetalheComponent implements OnInit {
 
   public resetForm(): void {
     this.form.reset();
+  }
+
+  listar(): void {
+    this.router.navigate([`/listar-hospede`]);
   }
 
   public cssValidator(campoForm: FormControl | AbstractControl): any {

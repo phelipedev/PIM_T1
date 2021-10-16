@@ -9,6 +9,7 @@ export interface ReservaDashboard {
   dataSaida: Date;
   qtdAdultos: number;
   qtdCriancas: number;
-  qtdQuartos: number;
+  qtdApartamentos: number;
   cpf: string;
+  categoria: number;
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Fornecedor } from '@app/models/Fornecedor';
@@ -13,6 +13,11 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./fornecedor.component.scss']
 })
 export class FornecedorComponent implements OnInit {
+
+  @Input() titulo: string;
+  @Input() iconClass = 'fa fa-user';
+  @Input() subtitulo = 'Desde 2021';
+
   form: FormGroup;
 
   fornecedor = {} as Fornecedor;
@@ -60,8 +65,11 @@ export class FornecedorComponent implements OnInit {
   }
 
   public resetForm(): void {
-    this.router.navigate([`adm`]);
     this.form.reset();
+  }
+
+  listar(): void {
+    this.router.navigate([`/listar-fornecedor`]);
   }
 
   public cssValidator(campoForm: FormControl | AbstractControl): any {

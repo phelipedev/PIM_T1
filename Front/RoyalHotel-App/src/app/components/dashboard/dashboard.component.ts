@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { ReservaDashboard } from '@app/models/ReservaDashboard';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { DashbordService } from '@app/services/dashbord.service';
 
 defineLocale('pt-br', ptBrLocale);
 
@@ -38,6 +39,7 @@ export class DashboardComponent implements OnInit {
     private localeService: BsLocaleService,
     private router: Router,
     private fb: FormBuilder,
+    private service: DashbordService
   ) {
     this.localeService.use('pt-br');
   }
@@ -60,6 +62,28 @@ export class DashboardComponent implements OnInit {
       dataSaida: ['', Validators.required],
       cpf: ['', Validators.required],
     });
+  }
+
+  public salvarReserva(): void {
+    if (this.form.valid) {
+      this.reserva.categoria = 2;
+      this.reserva.dataEntrada = this.form.value.dataEntrada.toISOString().split('T')[0];
+      this.reserva.dataSaida = this.form.value.dataSaida.toISOString().split('T')[0];
+      this.reserva.primeiroNome = this.form.value.primeiroNome;
+      this.reserva.sobrenome = this.form.value.sobrenome;
+      this.reserva.email = this.form.value.email;
+      this.reserva.telefone = this.form.value.telefone;
+      this.reserva.celular = this.form.value.celular;
+      this.reserva.qtdAdultos = this.form.value.qtdAdultos;
+      this.reserva.qtdCriancas = this.form.value.qtdCriancas;
+      this.reserva.qtdApartamentos = this.form.value.qtdApartamentos;
+      this.reserva.cpf = this.form.value.cpf;
+      this.service.post(this.reserva).subscribe({
+        next: (resp) => {
+          console.log(resp);
+        }
+      });
+    }
   }
 
   modalCadastro(template: TemplateRef<any>): void {

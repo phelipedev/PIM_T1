@@ -1,5 +1,19 @@
-<div class="row" style="margin-bottom: 100px; margin-top: 80px;">
+<div class="row" style="margin-bottom: 100px;">
   <div class="container">
+    <div class="d-flex p-3 my-3 text-white bg-secondary rounded shadow-sm">
+      <div class="d-flex align-items-center mr-auto">
+        <i id="i" class="{{iconClass}} mr-3"></i>
+        <div class="lh-100">
+          <h2 class="mb-0">Hospedes</h2>
+          <small>{{subtitulo}}</small>
+        </div>
+      </div>
+      <div class="p-3">
+        <button class="btn btn-outline-light" (click)="listar()">
+          Lista Hospedes
+        </button>
+      </div>
+    </div>
     <div class="card rounded shadow-sm">
       <form [formGroup]="form">
         <div class="p-3">

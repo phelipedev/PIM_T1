@@ -74,6 +74,9 @@ export class OrcamentoComponent implements OnInit {
   }
 
   public salvarOrcamento(): void {
+    if (this.form.valid) {
+      this.orcamento = { ...this.form.value };
+    }
   }
 
   public cssValidator(campoForm: FormControl | AbstractControl): any {

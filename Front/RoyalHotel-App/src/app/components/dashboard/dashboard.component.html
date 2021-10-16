@@ -31,19 +31,18 @@
                 <div class="col-md-2">
                   <label>Data Entrada</label>
                   <input type="datetime" class="form-control" value="{{reserva.dataEntrada | DateFormatPipe}}"
-                  bsDatepicker [bsConfig]="bsConfig" formControlName="dataChegada"
-                  placeholder="" [(ngModel)]="reserva.dataEntrada">
+                  bsDatepicker formControlName="dataEntrada" placeholder="" [(ngModel)]="reserva.dataEntrada">
                 </div>
                 <div class="col-md-2">
                   <label>Data Saída</label>
                   <input type="datetime" class="form-control"
-                  value="{{reserva.dataSaida | DateFormatPipe}}" bsDatepicker [bsConfig]="bsConfig" formControlName="dataSaida"
+                  value="{{reserva.dataSaida | DateFormatPipe}}" bsDatepicker  formControlName="dataSaida"
                   placeholder="" [(ngModel)]="reserva.dataSaida">
                 </div>
                 <div class="col-md-4">
                   <div class="book_tabel_item">
                     <div class="input-group">
-                      <select class="form-select form-select-sm" aria-label=".form-select-sm">
+                      <select class="form-select form-select-sm" aria-label=".form-select-sm" formControlName="qtdAdultos" [(ngModel)]="reserva.qtdAdultos">
                         <option selected>Adultos</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -52,12 +51,12 @@
                       </select>
                     </div>
                     <div class="input-group">
-                      <select class="form-select form-select-sm" aria-label=".form-select-sm">
+                      <select class="form-select form-select-sm" aria-label=".form-select-sm" formControlName="qtdCriancas" [(ngModel)]="reserva.qtdCriancas">
                         <option selected>Crianças</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4+</option>
+                        <option value="1">0</option>
+                        <option value="2">1</option>
+                        <option value="3">2</option>
+                        <option value="4">3+</option>
                       </select>
                     </div>
                   </div>
@@ -65,8 +64,8 @@
                 <div class="col-md-4">
                   <div class="book_tabel_item">
                     <div class="input-group">
-                      <select class="form-select form-select-sm" aria-label=".form-select-sm">
-                        <option selected>Quantidade de Quartos</option>
+                      <select class="form-select form-select-sm" aria-label=".form-select-sm" formControlName="qtdApartamentos" [(ngModel)]="reserva.qtdApartamentos">
+                        <option selected>Quantidade de Apartamentos</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -150,7 +149,7 @@
         </div>
         <div class="form-row">
           <div class="form-group col-12">
-            <button class="btn btn-lg btn-success btn-block px-5">
+            <button class="btn btn-lg btn-success btn-block px-5" (click)="salvarReserva()">
               Reservar
             </button>
           </div>

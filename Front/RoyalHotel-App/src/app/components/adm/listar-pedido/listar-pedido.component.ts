@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { NgxSpinnerService } from 'ngx-spinner';
@@ -11,6 +11,10 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ListarPedidoComponent implements OnInit {
 
+  @Input() titulo: string;
+  @Input() iconClass = 'fas fa-clipboard-list';
+  @Input() subtitulo = 'Desde 2021';
+
   modalRef: BsModalRef;
 
   constructor(
@@ -21,6 +25,11 @@ export class ListarPedidoComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+  }
+
+
+  navegar(): void {
+
   }
 
   decline(): void {

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RegistrarPedido } from '@app/models/RegistrarPedido';
@@ -13,6 +13,10 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./registrar-pedido.component.scss']
 })
 export class RegistrarPedidoComponent implements OnInit {
+
+  @Input() titulo: string;
+  @Input() iconClass = 'fas fa-clipboard-list';
+  @Input() subtitulo = 'Desde 2021';
 
   form: FormGroup;
 
@@ -57,6 +61,10 @@ export class RegistrarPedidoComponent implements OnInit {
       valorTotal: ['', Validators.required],
       hospede: ['', Validators.required],
     });
+  }
+
+  navegar(): void {
+    this.router.navigate([`/listar-pedido`]);
   }
 
   public resetForm(): void {

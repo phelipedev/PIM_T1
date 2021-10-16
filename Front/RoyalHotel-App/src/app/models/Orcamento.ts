@@ -6,7 +6,7 @@ export interface Orcamento {
   estado: string;
   telefone: string;
   celular: string;
-  dataChegada: Date;
+  dataEntrada: Date;
   dataSaida: Date;
   qtdAdultos: number;
   qtdCriancas: number;

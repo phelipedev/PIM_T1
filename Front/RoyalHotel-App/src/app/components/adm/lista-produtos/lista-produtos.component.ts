@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { NgxSpinnerService } from 'ngx-spinner';
@@ -10,6 +10,10 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./lista-produtos.component.scss']
 })
 export class ListaProdutosComponent implements OnInit {
+
+  @Input() titulo: string;
+  @Input() iconClass = 'fab fa-product-hunt';
+  @Input() subtitulo = 'Desde 2021';
 
   modalRef: BsModalRef;
 
@@ -25,5 +29,9 @@ export class ListaProdutosComponent implements OnInit {
 
   decline(): void {
     this.modalRef.hide();
+  }
+
+  listar(): void {
+    this.router.navigate([`/adm`]);
   }
 }

@@ -22,11 +22,11 @@
           </div>
         </div>
         <div class="form-group col-sm-6">
-          <label>Último nome</label>
-          <input type="text" class="form-control" formControlName="ultimoNome"
-            [ngClass]="{'is-invalid': f.ultimoNome.errors && f.ultimoNome.touched}" placeholder="Insira o Último nome" />
+          <label>Sobrenome: </label>
+          <input type="text" class="form-control" formControlName="sobreNome"
+            [ngClass]="{'is-invalid': f.sobreNome.errors && f.sobreNome.touched}" placeholder="Insira o Sobrenome" />
           <div class="invalid-feedback">
-            Último Nome é obrigatório.
+            Sobrenome é obrigatório.
           </div>
         </div>
       </div>
@@ -43,8 +43,8 @@
       </div>
       <div class="form-group">
         <label for="">Usuario:</label>
-        <input class="form-control" type="text" formControlName="userName"
-          [ngClass]="{'is-invalid': f.userName.errors && f.userName.touched}" placeholder="Insira o nome de Usuário" />
+        <input class="form-control" type="text" formControlName="usuario"
+          [ngClass]="{'is-invalid': f.usuario.errors && f.usuario.touched}" placeholder="Insira o nome de Usuário" />
         <div class="invalid-feedback">
           Usuário é obrigatório.
         </div>
@@ -85,7 +85,7 @@
       </div>
       <div class="form-row">
         <div class="form-group col-12">
-          <button class="btn btn-lg btn-success btn-block px-5">
+          <button class="btn btn-lg btn-success btn-block px-5" (click)="cadastroUsuario()">
             Registar
           </button>
         </div>
@@ -98,6 +98,5 @@
         </div>
       </div>
     </form>
-
 	</div>
 </div>
